@@ -3,13 +3,8 @@ import { Text as NativeText } from 'react-native';
 
 import styles from 'constants/styles';
 
-function Text({ style, ...remainingProps }) {
-  return (
-    <NativeText
-      style={{ color: styles.defaultFontColor }}
-      {...remainingProps}
-    />
-  );
+function Text({ color = styles.defaultFontColor, style, ...remainingProps }) {
+  return <NativeText style={[{ color }, style]} {...remainingProps} />;
 }
 
 export default Text;

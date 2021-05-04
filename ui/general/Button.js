@@ -1,25 +1,60 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
-import stylesVars from 'constants/styles';
+import styleVars from 'constants/styles';
+import Text from './Text';
 
 const styles = StyleSheet.create({
   base: {
-    padding: 10,
-    borderRadius: stylesVars.borderRadius,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: styleVars.borderRadius,
   },
   primary: {
-    backgroundColor: stylesVars.primaryColor,
+    backgroundColor: styleVars.primaryColor,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  default: {
+    backgroundColor: styleVars.contrastColor,
+  },
+  label: {
+    fontWeight: 'bold',
   },
 });
 
-function Button({ label, type, style = {}, ...remainingProps }) {
+function Button({
+  label,
+  icon,
+  type = 'default',
+  style = {},
+  ...remainingProps
+}) {
+  const fontColor =
+    type === 'default'
+      ? styleVars.contrastFontColor
+      : styleVars.defaultFontColor;
   return (
     <TouchableHighlight
       style={[styles.base, styles[type], style]}
       {...remainingProps}
     >
-      <Text>{label}</Text>
+      <>
+        {icon && (
+          <Feather
+            style={styles.icon}
+            name={icon}
+            color={fontColor}
+            size={16}
+          />
+        )}
+        <Text color={fontColor}>{label}</Text>
+      </>
     </TouchableHighlight>
   );
 }
