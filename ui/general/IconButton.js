@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-import styleVars from 'constants/styles';
+import styleVars from 'utils/styles';
 import Text from './Text';
 
 const styles = StyleSheet.create({

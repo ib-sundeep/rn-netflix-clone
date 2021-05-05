@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-import styleVars from 'constants/styles';
+import styleVars from 'utils/styles';
 import Text from './Text';
 
 const styles = StyleSheet.create({
@@ -22,9 +22,6 @@ const styles = StyleSheet.create({
   },
   default: {
     backgroundColor: styleVars.contrastColor,
-  },
-  label: {
-    fontWeight: 'bold',
   },
 });
 
@@ -53,7 +50,9 @@ function Button({
             size={16}
           />
         )}
-        <Text color={fontColor}>{label}</Text>
+        <Text weight="bold" color={fontColor}>
+          {label}
+        </Text>
       </>
     </TouchableHighlight>
   );

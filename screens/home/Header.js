@@ -4,17 +4,17 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { Text } from 'ui/general';
 import logo from 'assets/logo.png';
-import styleVars from 'constants/styles';
+import styleVars from 'utils/styles';
 
 const styles = StyleSheet.create({
   root: {
-    position: 'fixed',
+    position: 'absolute',
     height: styleVars.headerHeight,
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 10,
-    zIndex: 1,
+    zIndex: 2,
   },
   logo: {
     width: 36,
@@ -26,10 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
   },
-  navItem: {
-    fontSize: 20,
-    fontWeight: 600,
-  },
+  navItem: {},
   rightSpacer: {
     width: 36,
   },
@@ -43,8 +40,12 @@ function Header() {
     >
       <Image style={styles.logo} source={logo} />
       <View style={styles.nav}>
-        <Text style={styles.navItem}>TV Shows</Text>
-        <Text style={styles.navItem}>Movies</Text>
+        <Text size="large" weight="bold" style={styles.navItem}>
+          TV Shows
+        </Text>
+        <Text size="large" weight="bold" style={styles.navItem}>
+          Movies
+        </Text>
       </View>
       <View style={styles.rightSpacer}></View>
     </LinearGradient>

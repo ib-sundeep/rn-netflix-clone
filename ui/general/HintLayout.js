@@ -25,9 +25,12 @@ function HintLayout({ message, actionLabel, actionFn }) {
     <View style={styles.root}>
       <Text style={styles.message}>{message}</Text>
       {actionLabel && actionFn && (
-        <Button style={styles.action} onPress={actionFn}>
-          {actionLabel}
-        </Button>
+        <Button
+          type="primary"
+          style={styles.action}
+          onPress={actionFn}
+          label={actionLabel}
+        />
       )}
     </View>
   );

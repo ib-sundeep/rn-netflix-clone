@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
-import { AppScreens } from 'constants/screen';
+import { AppScreens } from 'utils/screen';
 import AccountScreen from 'screens/account';
 import HomeScreen from 'screens/home';
 import SearchScreen from 'screens/search';
-import styles from 'constants/styles';
+import styles from 'utils/styles';
 
 const Tab = createBottomTabNavigator();
 

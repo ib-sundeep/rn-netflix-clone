@@ -14,3 +14,4 @@ web-build/
 
 # Code editor
 .vscode
+jsconfig.json
