@@ -1,9 +1,11 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
+import { AppScreens } from 'utils/screen';
 import { generateImageUrl, ImageSizes } from '../utils/tmdb';
 import logo from 'assets/logo.png';
-import styleVars, { getPaddingFromAspectRatio } from 'utils/styles';
+import styleVars from 'utils/styles';
 
 const styles = StyleSheet.create({
   root: {
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
   },
   poster: {
     backgroundColor: styleVars.secondaryBackgroundColor,
-    paddingTop: getPaddingFromAspectRatio(styleVars.posterAspectRatio),
+    aspectRatio: styleVars.posterAspectRatio,
   },
   fixedWidth: {
     width: styleVars.cardWidth,
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
 });
 
 function MediaCard({ data, freeWidth = false, style = {}, ...remainingProps }) {
+  const navigation = useNavigation();
   let imageSource = logo,
     isPlaceholder = true;
   if (data.poster_path) {
@@ -28,13 +31,22 @@ function MediaCard({ data, freeWidth = false, style = {}, ...remainingProps }) {
     isPlaceholder = false;
   }
   return (
-    <View style={[styles.root, style]} {...remainingProps}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.push(AppScreens.detail, {
+          mediaType: data.media_type,
+          id: data.id,
+        })
+      }
+      style={[styles.root, style]}
+      {...remainingProps}
+    >
       <ImageBackground
         resizeMode={isPlaceholder ? 'contain' : 'center'}
         style={[styles.poster, !freeWidth && styles.fixedWidth]}
         source={imageSource}
       />
-    </View>
+    </TouchableOpacity>
   );
 }
 

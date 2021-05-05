@@ -1,10 +1,6 @@
 const DARK_COLOR = '#000000';
 const LIGHT_DARK_COLOR = '#323232';
 
-export function getPaddingFromAspectRatio(ar) {
-  return `${100 / ar}%`;
-}
-
 export default {
   mainBackgroundColor: DARK_COLOR,
   secondaryBackgroundColor: LIGHT_DARK_COLOR,
@@ -18,6 +14,7 @@ export default {
   gradientLightColor: 'rgba(0, 0, 0, 0)',
   posterAspectRatio: 2 / 3,
   cardWidth: 120,
+  videoAspectRatio: 16 / 9,
 
   hintFontColor: '#7e7e7e',
   defaultFontColor: '#ffffff',
