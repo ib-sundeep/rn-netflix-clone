@@ -14,6 +14,7 @@ const fontColors = {
   default: styleVars.defaultFontColor,
   primary: styleVars.primaryColor,
   dark: styleVars.darkFontColor,
+  hint: styleVars.hintFontColor,
 };
 
 const fontWeights = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
@@ -23,51 +24,64 @@ const AppTheme = {
 
 export default function App() {
   return (
-    <NavigationContainer theme={AppTheme}>
-      <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: styles.defaultFontColor,
-          tabStyle: { padding: 5 },
-          style: {
-            backgroundColor: styles.mainBackgroundColor,
-          },
-        }}
-      >
-        <Tab.Screen
-          name={AppScreens.home}
-          component={HomeScreen}
-          options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: ({ color }) => (
-              <Feather name="home" color={color} size={styles.tabBarIconSize} />
-            ),
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: styles.mainBackgroundColor }}
+    >
+      <StatusBar barStyle="light-content" />
+      <NavigationContainer theme={AppTheme}>
+        <Tab.Navigator
+          tabBarOptions={{
+            activeTintColor: styles.defaultFontColor,
+            tabStyle: { padding: 5 },
+            style: {
+              backgroundColor: styles.mainBackgroundColor,
+            },
           }}
-        />
-        <Tab.Screen
-          name={AppScreens.search}
-          component={SearchScreen}
-          options={{
-            tabBarLabel: 'Search',
-            tabBarIcon: ({ color }) => (
-              <Feather
-                name="search"
-                color={color}
-                size={styles.tabBarIconSize}
-              />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name={AppScreens.account}
-          component={AccountScreen}
-          options={{
-            tabBarLabel: 'Account',
-            tabBarIcon: ({ color }) => (
-              <Feather name="user" color={color} size={styles.tabBarIconSize} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+        >
+          <Tab.Screen
+            name={AppScreens.home}
+            component={HomeScreen}
+            options={{
+              tabBarLabel: 'Home',
+              tabBarIcon: ({ color }) => (
+                <Feather
+                  name="home"
+                  color={color}
+                  size={styles.tabBarIconSize}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name={AppScreens.search}
+            component={SearchScreen}
+            options={{
+              tabBarLabel: 'Search',
+              tabBarIcon: ({ color }) => (
+                <Feather
+                  name="search"
+                  color={color}
+                  size={styles.tabBarIconSize}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name={AppScreens.account}
+            component={AccountScreen}
+            options={{
+              tabBarLabel: 'Account',
+              tabBarIcon: ({ color }) => (
+                <Feather
+                  name="user"
+                  color={color}
+                  size={styles.tabBarIconSize}
+                />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }

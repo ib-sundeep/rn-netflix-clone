@@ -1,4 +1,5 @@
-const DARK_COLOR = '#151515';
+const DARK_COLOR = '#000000';
+const LIGHT_DARK_COLOR = '#323232';
 
 export function getPaddingFromAspectRatio(ar) {
   return `${100 / ar}%`;
@@ -6,6 +7,7 @@ export function getPaddingFromAspectRatio(ar) {
 
 export default {
   mainBackgroundColor: DARK_COLOR,
+  secondaryBackgroundColor: LIGHT_DARK_COLOR,
   primaryColor: '#e50914',
   tabBarIconSize: 18,
   borderRadius: 3,
@@ -17,6 +19,7 @@ export default {
   posterAspectRatio: 2 / 3,
   cardWidth: 120,
 
+  hintFontColor: '#7e7e7e',
   defaultFontColor: '#ffffff',
   darkFontColor: DARK_COLOR,
 

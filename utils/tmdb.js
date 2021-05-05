@@ -10,3 +10,7 @@ export const ImageSizes = {
 export function generateImageUrl(imagePath, size) {
   return path.join(IMAGE_BASE_URL, size, imagePath);
 }
+
+export function filterPreferredResults(results) {
+  return results.filter((o) => ['movie', 'tv'].includes(o.media_type));
+}

@@ -60,12 +60,12 @@ function Banner() {
       </View>
     );
   } else if (trending.length > 0) {
-    const mostTending = trending[0];
+    const mostTrending = trending[0];
     return (
       <ImageBackground
         style={styles.root}
         source={{
-          uri: generateImageUrl(mostTending.poster_path, ImageSizes.poster),
+          uri: generateImageUrl(mostTrending.poster_path, ImageSizes.poster),
         }}
         resizeMode="cover"
       >

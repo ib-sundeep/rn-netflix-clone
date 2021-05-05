@@ -1,8 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+import { filterPreferredResults } from 'utils/tmdb';
 import tmdbApi from 'api/tmdb';
 
-const TrendingContext = createContext();
+const TrendingContext = createContext({
+  trending: [],
+  error: null,
+  isLoading: false,
+});
 
 export function useTrendingState() {
   return useContext(TrendingContext);
@@ -19,7 +24,7 @@ export function TrendingProvider(props) {
 
     try {
       const json = await tmdbApi.get('/trending/all/day');
-      setTrending(json.results);
+      setTrending(filterPreferredResults(json.results));
     } catch (error) {
       setError(error);
     }
