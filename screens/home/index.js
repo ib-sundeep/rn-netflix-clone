@@ -18,7 +18,7 @@ function HomeScreen() {
       <View style={styles.root}>
         <Header />
         <ScrollView style={styles.content}>
-          <Banner />
+          
         </ScrollView>
       </View>
   );

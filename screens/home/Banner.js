@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
@@ -55,7 +55,7 @@ function Banner() {
           />
           <IconButton icon="info" label="Info" />
         </LinearGradient>
-      </ImageBackground>
+    </ImageBackground>
     );
 }
 
