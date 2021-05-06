@@ -1,9 +1,9 @@
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { HintLayout, LoadingLayout, Text } from 'ui/general';
 import { useSearchActions, useSearchState } from 'providers/search';
-import MediaCard from 'ui/MediaCard';
+import MediaGrid from 'ui/MediaGrid';
 
 const styles = StyleSheet.create({
   root: {
@@ -31,14 +31,6 @@ function SearchResults() {
   const { isLoading, error, results, searchedKw } = useSearchState();
   const { fetchResults } = useSearchActions();
 
-  function renderItem({ item }) {
-    return (
-      <View style={styles.card}>
-        <MediaCard freeWidth data={item} />
-      </View>
-    );
-  }
-
   if (isLoading) {
     return <LoadingLayout />;
   } else if (error) {
@@ -51,19 +43,12 @@ function SearchResults() {
     );
   } else if (results.length > 0) {
     return (
-      <View style={styles.root}>
+      <ScrollView style={styles.root}>
         <Text style={styles.hint}>
           Showing {results.length} results for {searchedKw}
         </Text>
-        <FlatList
-          style={styles.slides}
-          data={results}
-          renderItem={renderItem}
-          columnWrapperStyle={styles.row}
-          numColumns={3}
-          keyExtractor={(item) => `${item.media_type}/${item.id}`}
-        />
-      </View>
+        <MediaGrid list={results} />
+      </ScrollView>
     );
   } else if (searchedKw.length === 0) {
     return (

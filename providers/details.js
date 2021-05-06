@@ -40,7 +40,7 @@ export function DetailsProvider({ id, mediaType, ...remainingProps }) {
 
   return (
     <DetailsContext.Provider
-      value={{ data, isLoading, setLoading }}
+      value={{ data, isLoading, setLoading, error }}
       {...remainingProps}
     />
   );

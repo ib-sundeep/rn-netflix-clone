@@ -33,6 +33,12 @@ export function SearchProvider(props) {
   async function fetchResults() {
     if (isLoading) return;
 
+    if (kw.length === 0) {
+      setSearchedKw(kw);
+      setResults([]);
+      return;
+    }
+
     setLoading(true);
     setError(null);
 

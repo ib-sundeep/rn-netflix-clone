@@ -34,9 +34,11 @@ function Heading() {
         {data.original_title || data.original_name}
       </Text>
       <View style={styles.row}>
-        <Text size="small" style={styles.feature}>
-          {(data.release_date || data.first_air_date).split('-')[0]}
-        </Text>
+        {Boolean(data.release_date || data.first_air_date) && (
+          <Text size="small" style={styles.feature}>
+            {(data.release_date || data.first_air_date).split('-')[0]}
+          </Text>
+        )}
         {data.genres.length > 0 && (
           <>
             <View style={styles.dot} />
@@ -45,7 +47,7 @@ function Heading() {
             </Text>
           </>
         )}
-        {data.runtime && (
+        {Boolean(data.runtime) && (
           <>
             <View style={styles.dot} />
             <Text size="small" style={styles.feature}>

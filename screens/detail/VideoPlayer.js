@@ -46,7 +46,7 @@ function VideoPlayer() {
 
     let imageSource = logo,
       isPlaceholder = true;
-    if (data.poster_path) {
+    if (data.backdrop_path) {
       imageSource = {
         uri: generateImageUrl(data.backdrop_path, ImageSizes.backdrop),
       };
@@ -54,7 +54,11 @@ function VideoPlayer() {
     }
 
     return (
-      <ImageBackground style={styles.root} source={imageSource}>
+      <ImageBackground
+        resizeMode={isPlaceholder ? 'contain' : 'cover'}
+        style={styles.root}
+        source={imageSource}
+      >
         <View style={[styles.player, play && styles.playing]}>
           <YoutubePlayer play={play} height={'100%'} videoId={video.key} />
         </View>
@@ -65,14 +69,16 @@ function VideoPlayer() {
           >
             <Feather
               style={styles.play}
-              color={styleVars.defaultFontColor}
+              color={styleVars.primaryColor}
               name="play-circle"
-              size={60}
+              size={72}
             />
           </TouchableOpacity>
         )}
       </ImageBackground>
     );
+  } else {
+    return null;
   }
 }
 

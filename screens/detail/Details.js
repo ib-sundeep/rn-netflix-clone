@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Linking, ScrollView, StyleSheet, View } from 'react-native';
 
 import { Button, HintLayout, LoadingLayout, Text } from 'ui/general';
@@ -37,15 +37,8 @@ function Details() {
       <View style={styles.root}>
         <VideoPlayer />
         <ScrollView style={styles.details}>
-          {/* <YoutubePlayer
-            style={styles.player}
-            play={play}
-            height={150}
-            width={300}
-            videoId="iee2TATGMyI"
-          /> */}
           <Heading />
-          {data.homepage && (
+          {Boolean(data.homepage) && (
             <Button
               onPress={() => Linking.openURL(data.homepage)}
               style={styles.action}
@@ -53,7 +46,7 @@ function Details() {
               label="Visit website"
             />
           )}
-          {data.overview && (
+          {Boolean(data.overview) && (
             <Text style={styles.overview} size="small">
               {data.overview}
             </Text>

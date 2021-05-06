@@ -12,6 +12,9 @@ web-build/
 # macOS
 .DS_Store
 
+# Config
+secrets.json
+
 # Code editor
 .vscode
 jsconfig.json

@@ -42,7 +42,7 @@ function MediaCard({ data, freeWidth = false, style = {}, ...remainingProps }) {
       {...remainingProps}
     >
       <ImageBackground
-        resizeMode={isPlaceholder ? 'contain' : 'center'}
+        resizeMode={isPlaceholder ? 'center' : 'cover'}
         style={[styles.poster, !freeWidth && styles.fixedWidth]}
         source={imageSource}
       />

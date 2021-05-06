@@ -3,7 +3,7 @@ import { ImageBackground, StyleSheet, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
-import { Button, IconButton, LoadingLayout } from 'ui/general';
+import { Button, HintLayout, IconButton, LoadingLayout } from 'ui/general';
 import { generateImageUrl, ImageSizes } from 'utils/tmdb';
 import { useTrendingState } from 'providers/trending';
 import styleVars from 'utils/styles';

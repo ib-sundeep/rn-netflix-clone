@@ -1,7 +1,8 @@
 import Api from 'utils/api';
+import secrets from '../secrets';
 
 const API_BASE = 'https://api.themoviedb.org/3';
-const API_KEY = 'bf5d6ab1275f7718a41332fb3218bd17';
+const API_KEY = secrets.TMDB_API_KEY;
 
 const tmdbApi = new Api({
   baseUrl: API_BASE,
