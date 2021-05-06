@@ -23,29 +23,7 @@ const styles = StyleSheet.create({
 
 function Tending() {
   const { trending, isLoading, error } = useTrendingState();
-
-  if (isLoading) {
-    return <LoadingLayout />;
-  } else if (error) {
-    return <HintLayout message="Failed to load" />;
-  } else {
-    return (
-      <View style={styles.root}>
-        <Text style={styles.title} size="large" weight="bold">
-          Trending
-        </Text>
-        <ScrollView style={styles.slides} horizontal>
-          {trending.map((item) => (
-            <MediaCard
-              key={`${item.media_type}/${item.id}`}
-              style={styles.card}
-              data={item}
-            />
-          ))}
-        </ScrollView>
-      </View>
-    );
+    return null;
   }
-}
 
 export default Tending;

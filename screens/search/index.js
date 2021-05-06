@@ -12,14 +12,7 @@ const styles = StyleSheet.create({
 });
 
 function SearchScreen() {
-  return (
-    <SearchProvider>
-      <View style={styles.root}>
-        <SearchInput />
-        <SearchResults />
-      </View>
-    </SearchProvider>
-  );
+  return null;
 }
 
 export default SearchScreen;

@@ -28,36 +28,7 @@ const styles = StyleSheet.create({
 function Heading() {
   const { data } = useDetailsState();
 
-  return (
-    <View style={styles.root}>
-      <Text size="xLarge" weight="bold">
-        {data.original_title || data.original_name}
-      </Text>
-      <View style={styles.row}>
-        {Boolean(data.release_date || data.first_air_date) && (
-          <Text size="small" style={styles.feature}>
-            {(data.release_date || data.first_air_date).split('-')[0]}
-          </Text>
-        )}
-        {data.genres.length > 0 && (
-          <>
-            <View style={styles.dot} />
-            <Text size="small" style={styles.feature}>
-              {data.genres.map((o) => o.name).join(', ')}
-            </Text>
-          </>
-        )}
-        {Boolean(data.runtime) && (
-          <>
-            <View style={styles.dot} />
-            <Text size="small" style={styles.feature}>
-              {toCountdown(data.runtime)}
-            </Text>
-          </>
-        )}
-      </View>
-    </View>
-  );
+  return null;
 }
 
 export default Heading;

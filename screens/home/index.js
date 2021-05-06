@@ -14,17 +14,7 @@ const styles = StyleSheet.create({
 });
 
 function HomeScreen() {
-  return (
-    <TrendingProvider>
-      <View style={styles.root}>
-        <Header />
-        <ScrollView style={styles.content}>
-          <Banner />
-          <Trending />
-        </ScrollView>
-      </View>
-    </TrendingProvider>
-  );
+  return null;
 }
 
 export default HomeScreen;

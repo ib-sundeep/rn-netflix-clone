@@ -27,37 +27,7 @@ const styles = StyleSheet.create({
 
 function Details() {
   const { isLoading, error, data } = useDetailsState();
-
-  if (isLoading) {
-    return <LoadingLayout />;
-  } else if (error) {
-    return <HintLayout message="Failed to load details!" />;
-  } else if (data) {
-    return (
-      <View style={styles.root}>
-        <VideoPlayer />
-        <ScrollView style={styles.details}>
-          <Heading />
-          {Boolean(data.homepage) && (
-            <Button
-              onPress={() => Linking.openURL(data.homepage)}
-              style={styles.action}
-              icon="external-link"
-              label="Visit website"
-            />
-          )}
-          {Boolean(data.overview) && (
-            <Text style={styles.overview} size="small">
-              {data.overview}
-            </Text>
-          )}
-          <Recommended />
-        </ScrollView>
-      </View>
-    );
-  } else {
     return null;
   }
-}
 
 export default Details;

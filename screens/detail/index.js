@@ -5,11 +5,7 @@ import Details from './Details';
 
 function DetailScreen({ route }) {
   const { id, mediaType } = route.params;
-  return (
-    <DetailsProvider id={id} mediaType={mediaType}>
-      <Details />
-    </DetailsProvider>
-  );
+  return null;
 }
 
 export default DetailScreen;

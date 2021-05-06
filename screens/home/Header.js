@@ -33,23 +33,7 @@ const styles = StyleSheet.create({
 });
 
 function Header() {
-  return (
-    <LinearGradient
-      colors={[styleVars.gradientDarkColor, styleVars.gradientLightColor]}
-      style={styles.root}
-    >
-      <Image style={styles.logo} source={logo} />
-      <View style={styles.nav}>
-        <Text size="large" weight="bold" style={styles.navItem}>
-          TV Shows
-        </Text>
-        <Text size="large" weight="bold" style={styles.navItem}>
-          Movies
-        </Text>
-      </View>
-      <View style={styles.rightSpacer}></View>
-    </LinearGradient>
-  );
+  return null;
 }
 
 export default Header;

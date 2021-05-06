@@ -27,25 +27,7 @@ function SearchInput() {
   const { kw } = useSearchState();
   const { fetchResults, setKw } = useSearchActions();
 
-  return (
-    <View style={styles.root}>
-      <Feather
-        color={styleVars.hintFontColor}
-        style={styles.icon}
-        name="search"
-        size={16}
-      />
-      <TextInput
-        autoFocus
-        clearButtonMode="always"
-        style={styles.input}
-        value={kw}
-        onChangeText={setKw}
-        returnKeyType="search"
-        onSubmitEditing={fetchResults}
-      />
-    </View>
-  );
+  return null;
 }
 
 export default SearchInput;
