@@ -34,7 +34,29 @@ const styles = StyleSheet.create({
 function Banner() {
   const navigation = useNavigation();
   const { trending, isLoading, error } = useTrendingState();
-    return null;
+    return (
+      <ImageBackground
+        style={styles.root}
+        source={{
+          uri: 'https://image.tmdb.org/t/p/w500/xGuOF1T3WmPsAcQEQJfnG7Ud9f8.jpg',
+        }}
+        resizeMode="cover"
+      >
+        <LinearGradient
+          style={styles.actions}
+          colors={[styleVars.gradientLightColor, styleVars.gradientDarkColor]}
+        >
+          <IconButton icon="plus" label="My List" />
+          <Button
+            icon="play"
+            style={styles.mainAction}
+            label="Play"
+            onPress={() => console.log('pressed play button')}
+          />
+          <IconButton icon="info" label="Info" />
+        </LinearGradient>
+      </ImageBackground>
+    );
 }
 
 export default Banner;

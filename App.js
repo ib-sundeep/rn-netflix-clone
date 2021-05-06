@@ -26,9 +26,75 @@ const AppTheme = {
 };
 
 function TabsContainer() {
-  return null;
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: styles.defaultFontColor,
+        tabStyle: { padding: 5 },
+        style: {
+          backgroundColor: styles.mainBackgroundColor,
+        },
+      }}
+    >
+      <Tab.Screen
+        name={AppScreens.home}
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => (
+            <Feather name="home" color={color} size={styles.tabBarIconSize} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={AppScreens.search}
+        component={SearchScreen}
+        options={{
+          tabBarLabel: 'Search',
+          tabBarIcon: ({ color }) => (
+            <Feather name="search" color={color} size={styles.tabBarIconSize} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={AppScreens.account}
+        component={AccountScreen}
+        options={{
+          tabBarLabel: 'Account',
+          tabBarIcon: ({ color }) => (
+            <Feather name="user" color={color} size={styles.tabBarIconSize} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 }
 
 export default function App() {
-  return null;
+  return (
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: styles.mainBackgroundColor }}
+    >
+      <StatusBar barStyle="light-content" />
+      <NavigationContainer theme={AppTheme}>
+        <Stack.Navigator>
+          <Stack.Screen
+            name={AppScreens.tabs}
+            component={TabsContainer}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={AppScreens.detail}
+            component={DetailScreen}
+            options={{
+              headerStyle: { backgroundColor: styles.mainBackgroundColor },
+              headerBackTitleVisible: false,
+              headerTitle: '',
+              headerTintColor: styles.defaultFontColor,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
+  );
 }

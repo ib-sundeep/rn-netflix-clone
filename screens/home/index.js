@@ -14,7 +14,14 @@ const styles = StyleSheet.create({
 });
 
 function HomeScreen() {
-  return null;
+  return (
+      <View style={styles.root}>
+        <Header />
+        <ScrollView style={styles.content}>
+          <Banner />
+        </ScrollView>
+      </View>
+  );
 }
 
 export default HomeScreen;
